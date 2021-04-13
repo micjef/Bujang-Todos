@@ -1,15 +1,35 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, StyleSheet, TextInput } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import Colors from '../constants/Colors';
+import ToDoItem from '../components/TodoItem';
 
 export default function TabOneScreen() {
+  const [todos, setTodos] = useState([
+    {
+      id: '1',
+      content: 'Write with fun',
+      isCompleted: true,
+    }, {
+      id: '2',
+      content: 'Write with fun',
+      isCompleted: true,
+    }, {
+      id: '3',
+      content: 'Write with fun',
+      isCompleted: false,
+    }
+  ])
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <FlatList 
+        data={todos}
+        renderItem={({ item }) => <ToDoItem todo={item} />}
+        style={{ width: '100%' }}
+      />
     </View>
   );
 }
@@ -18,15 +38,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    padding: 12,
+    backgroundColor: Colors.dark.tint,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+    color: Colors.dark.title,
   },
 });
