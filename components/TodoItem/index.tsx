@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { View, Text, TextInput } from 'react-native'
 import Colors from '../../constants/Colors'
 import Checkbox from '../Checkbox'
@@ -8,12 +8,15 @@ interface ToDoItemProps{
     id: String,
     content: String,
     isCompleted: boolean,
-  }
+  },
+  onSubmit: () => void,
 }
 
-const ToDoItem = ({todo}: ToDoItemProps) => {
+const ToDoItem = ({todo, onSubmit}: ToDoItemProps) => {
   const [isChecked, setIsChecked] = useState(false)
   const [content, setContent] = useState('')
+
+  const input = useRef(null)
 
   useEffect(() => {
     if(!todo){
@@ -22,6 +25,26 @@ const ToDoItem = ({todo}: ToDoItemProps) => {
     setIsChecked(todo.isCompleted)
     setContent(todo.content)
   }, [todo])
+
+  useEffect(() => {
+    if(input.current){
+      input?.current?.focus()
+    }
+    //input.current.focus()
+  }, [input])
+
+  const onKeyPress = ({ nativeEvent }) => {
+    //console.log(nativeEvent);
+    if(nativeEvent.key === 'Backspace' && content === ''){
+      console.warn('delete item');
+      
+    }
+  }
+
+  /*const onSubmit = () => {
+    console.warn('submit');
+    
+  }*/
 
   return (
     <View style={{ 
@@ -36,6 +59,7 @@ const ToDoItem = ({todo}: ToDoItemProps) => {
         onPress={() => {setIsChecked(!isChecked)}}
       />
       <TextInput 
+        ref={input}
         value={content}
         onChangeText={setContent}
         style={{
@@ -45,6 +69,9 @@ const ToDoItem = ({todo}: ToDoItemProps) => {
           marginLeft: 12,
         }}
         multiline
+        onSubmitEditing={onSubmit}
+        blurOnSubmit
+        onKeyPress={onKeyPress}
       />
     </View>
   )
