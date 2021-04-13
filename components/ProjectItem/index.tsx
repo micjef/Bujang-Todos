@@ -1,4 +1,5 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { View, Text, Pressable } from 'react-native'
 import styles from './styles'
@@ -12,9 +13,11 @@ interface ProjectItemProps{
 }
 
 const ProjectItem = ( { project }: ProjectItemProps ) => {
+  const navigation = useNavigation()
+
   const onPress = () => {
-    console.warn(`open project ${project.title}`);
-    
+    //console.warn(`open project ${project.title}`);
+    navigation.navigate('ToDoScreen', {id: project.id})
   }
 
   return (
