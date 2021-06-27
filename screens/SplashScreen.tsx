@@ -11,8 +11,8 @@ const SplashScreen = () => {
       navigation.navigate("Home");
     } else {
       navigation.navigate("SignInScreen");
-    }*/
-    const checkUser = async () => {
+    }
+    */const checkUser = async () => {
       if (isAuthenticated()) {
         navigation.navigate('Home');
       } else {
