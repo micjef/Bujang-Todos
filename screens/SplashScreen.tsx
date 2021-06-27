@@ -6,28 +6,28 @@ import AsyncStorage from '@react-native-community/async-storage';
 const SplashScreen = () => {
   const navigation = useNavigation();
 
-  useEffect(() => {
-    if (isAuthenticated()) {
+  useEffect( () => {
+    /*if (isAuthenticated()) {
       navigation.navigate("Home");
     } else {
       navigation.navigate("SignInScreen");
-    }
-    /*const checkUser = async () => {
+    }*/
+    const checkUser = async () => {
       if (isAuthenticated()) {
         navigation.navigate('Home');
       } else {
-        navigation.navigate('SignIn');
+        navigation.navigate('SignInScreen');
       }
-    }*/
+    }
 
-    //checkUser();
+    checkUser();
   }, []);
 
-  const isAuthenticated = () => {
+  const isAuthenticated = async () => {
     // await AsyncStorage.removeItem('token');
-    //const token = await AsyncStorage.getItem('token');
-    //return !!token;
-    return false;
+    const token = await AsyncStorage.getItem('token');
+    return !!token;
+    //return false;
   }
 
   return (

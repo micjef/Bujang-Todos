@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
   root: {
     flexDirection: 'row',
     width: '100%',
-    backgroundColor: 'none',
     alignItems: 'center',
   },
   iconContainer: {

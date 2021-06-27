@@ -1,8 +1,29 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
-import { View, Text, TextInput, Pressable } from 'react-native'
+import { View, Text, TextInput, Pressable, Alert } from 'react-native'
 import Colors from '../constants/Colors'
-import Navigation from '../navigation'
+
+import { useMutation, gql } from '@apollo/client'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
+const SIGN_IN_MUTATION = gql`
+  mutation signIn(
+    $email: String!,
+    $password: String!
+  ){
+    signIn(input : {
+      email: $email,
+      password: $password
+    }){
+      token
+      user{
+        id
+        name
+        email
+      }
+    }
+  }
+`
 
 const SignInScreen = () => {
   const navigation = useNavigation()
@@ -10,8 +31,27 @@ const SignInScreen = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const onSubmit = () => {
+  const [signIn, { data, error, loading }] = useMutation(SIGN_IN_MUTATION)
 
+  if (error) {
+    Alert.alert('Invalid credentials, try again')
+  }
+
+  if (data) {
+    //save token
+    AsyncStorage.setItem('token', data.signIn.token).then(() => {
+      //redirect home
+      navigation.navigate('Home')
+    })
+
+    
+  }
+
+  console.log(data)
+  console.log(error)
+
+  const onSubmit = () => {
+    signIn({variables: { email, password }})
   }
 
   return (
@@ -41,6 +81,7 @@ const SignInScreen = () => {
       />
       <Pressable 
         onPress={onSubmit}
+        disabled={loading}
         style={{
           backgroundColor: '#e33062',
           height: 50,
