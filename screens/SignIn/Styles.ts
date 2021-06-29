@@ -80,6 +80,56 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: -3,
   },
+
+  //mobile
+  mobileIn_view: {
+    alignItems: 'center',
+  },
+  mobileIn_logo: {
+    width: 200,
+    height: 200,
+    marginTop: (windowWidth -2) / 64 * 10,
+    borderRadius: 500,
+    marginBottom: 75,
+  },
+  mobileIn_input: {
+    width: (windowWidth - 20) / 64 * 24.5,
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#ADADB3',
+    borderRadius: 20,
+    color: '#F3F2F9',
+    fontSize: 18,
+    marginBottom: 10,
+    paddingHorizontal: 10,
+  },
+  mobileIn_login: {
+    width: (windowWidth - 20) / 64 * 24.5,
+    height: 43,
+    backgroundColor: '#CB7362',
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 33,
+  },
+  mobileIn_loginText: {
+    fontSize: 24,
+    color: '#F3F2F9',
+  },
+  mobileIn_toRegister: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  mobileIn_toRegisterLeft: {
+    fontSize: 18,
+    color: '#F9F871',
+  },
+  mobileIn_toRegisterRight: {
+    fontSize: 24,
+    color: '#CB7362',
+    marginLeft: 20,
+    marginTop: -3,
+  },
 })
 
 export default styles

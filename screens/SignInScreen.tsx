@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { View, Text, TextInput, Pressable, Alert, Image, Dimensions } from 'react-native'
-import Colors from '../constants/Colors'
 
 import { useMutation, gql } from '@apollo/client'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -53,14 +52,8 @@ const SignInScreen = () => {
     
   }
 
-  console.log(data)
-  console.log(error)
-
   const onSubmit = () => {
     signIn({variables: { email, password }})
-
-    console.log('click');
-    
   }
 
   return (
@@ -105,72 +98,39 @@ const SignInScreen = () => {
           </View>
         </View>
       ) : (
-        <View style={{ padding: 20 }}>
-          <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
-            style={{
-              color: Colors.dark.text,
-              fontSize: 18,
-              width: '100%',
-              marginVertical: 25,
-            }}
-          />
-          <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            style={{
-              color: Colors.dark.text,
-              fontSize: 18,
-              width: '100%',
-              marginVertical: 25,
-            }}
-          />
-          <Pressable 
-            onPress={onSubmit}
-            disabled={loading}
-            style={{
-              backgroundColor: '#e33062',
-              height: 50,
-              borderRadius: 5,
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: 30,
-            }}
-          >
-            <Text
-              style={{
-                color: Colors.dark.text,
-                fontSize: 18,
-                fontWeight: 'bold'
-              }}
+        <View style={styles.mobileIn_view}>
+            <Image source={dekstopRightBg} style={styles.mobileIn_logo} />
+
+            <TextInput 
+              placeholder="Email"
+              value={email}
+              onChangeText={setEmail}
+              style={styles.mobileIn_input}
+            />
+
+            <TextInput 
+              placeholder="Password"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+              style={styles.mobileIn_input}
+            />
+
+            <Pressable 
+              onPress={onSubmit}
+              disabled={loading}
+              style={styles.dekstopIn_login}
             >
-              Sign In
-            </Text>
-          </Pressable>
-          <Pressable 
-            onPress={() => navigation.navigate('SignUpScreen')}
-            style={{
-              height: 50,
-              borderRadius: 5,
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: 30,
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: 'bold',
-                color: '#e33062',
-              }}
-            >
-              New here ? Sign Up
-            </Text>
-          </Pressable>
+              <Text style={styles.dekstopIn_loginText}>Login</Text>
+            </Pressable>
+            
+            <View style={styles.mobileIn_toRegister}>
+              <Text style={styles.mobileIn_toRegisterLeft}>Don’t have account ?</Text>
+              <Pressable onPress={() => navigation.navigate('SignUpScreen')}>
+                <Text style={styles.mobileIn_toRegisterRight}>Register</Text>
+              </Pressable>
+            </View>
+          
         </View>
       )}
     </View>
