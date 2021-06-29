@@ -31,21 +31,22 @@ const Stack = createStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen 
+      {/*<Stack.Screen 
         name="Splash"
         component={SplashScreen}
         options={{
           headerShown: false
         }}
-      />
+      />*/}
       <Stack.Screen 
         name="SignInScreen" 
         component={SignInScreen} 
         options={{
-          title: "Sign In"
+          //title: "Sign In"
+          headerShown: false
         }}
       />
-      <Stack.Screen 
+      {/*<Stack.Screen 
         name="SignUpScreen" 
         component={SignUpScreen} 
         options={{
