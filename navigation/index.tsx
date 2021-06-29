@@ -46,15 +46,16 @@ function RootNavigator() {
           headerShown: false
         }}
       />
-      {/*<Stack.Screen 
+      <Stack.Screen 
         name="SignUpScreen" 
         component={SignUpScreen} 
         options={{
-          title: "Sign Up"
+          //title: "Sign Up"
+          headerShown: false
         }}
       />
-      <Stack.Screen name="Home" component={ProjectScreens} />
-      <Stack.Screen name="ToDoScreen" component={ToDoScreen} />
+      {/*<Stack.Screen name="Home" component={ProjectScreens} />
+      <Stack.Screen name="ToDoScreen" component={ToDoScreen} />*/}
       {/*<Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />*/}
     </Stack.Navigator>
   );

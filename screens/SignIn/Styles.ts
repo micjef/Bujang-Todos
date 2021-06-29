@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   dekstopIn_image: {
-    width: (windowWidth -23) / 144 * 92,
+    width: (windowWidth -20) / 144 * 92 - 2,
     height: windowHeight - 22,
     borderTopRightRadius: 40,
     borderBottomRightRadius: 40,
@@ -40,8 +40,9 @@ const styles = StyleSheet.create({
     height: 200,
     marginTop: (windowWidth -2) / 144 * 10,
     borderRadius: 500,
+    marginBottom: 75,
   },
-  dekstopIn_email: {
+  dekstopIn_input: {
     width: (windowWidth - 20) /144 * 35,
     height: 40,
     borderWidth: 1,
@@ -49,18 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     color: '#F3F2F9',
     fontSize: 18,
-    marginTop: 75,
-    paddingHorizontal: 10,
-  },
-  dekstopIn_password: {
-    width: (windowWidth - 20) /144 * 35,
-    height: 40,
-    borderWidth: 1,
-    borderColor: '#ADADB3',
-    borderRadius: 20,
-    color: '#F3F2F9',
-    fontSize: 18,
-    marginTop: 33,
+    marginBottom: 10,
     paddingHorizontal: 10,
   },
   dekstopIn_login: {

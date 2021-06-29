@@ -74,7 +74,7 @@ const SignInScreen = () => {
               placeholder="Email"
               value={email}
               onChangeText={setEmail}
-              style={styles.dekstopIn_email}
+              style={styles.dekstopIn_input}
             />
 
             <TextInput 
@@ -82,7 +82,7 @@ const SignInScreen = () => {
               value={password}
               onChangeText={setPassword}
               secureTextEntry
-              style={styles.dekstopIn_password}
+              style={styles.dekstopIn_input}
             />
 
             <Pressable 
