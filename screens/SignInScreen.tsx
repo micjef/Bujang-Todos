@@ -119,15 +119,15 @@ const SignInScreen = () => {
             <Pressable 
               onPress={onSubmit}
               disabled={loading}
-              style={styles.dekstopIn_login}
+              style={styles.mobileIn_login}
             >
               <Text style={styles.dekstopIn_loginText}>Login</Text>
             </Pressable>
             
-            <View style={styles.mobileIn_toRegister}>
-              <Text style={styles.mobileIn_toRegisterLeft}>Don’t have account ?</Text>
+            <View style={styles.dekstopIn_toRegister}>
+              <Text style={styles.dekstopIn_toRegisterLeft}>Don’t have account ?</Text>
               <Pressable onPress={() => navigation.navigate('SignUpScreen')}>
-                <Text style={styles.mobileIn_toRegisterRight}>Register</Text>
+                <Text style={styles.dekstopIn_toRegisterRight}>Register</Text>
               </Pressable>
             </View>
           

@@ -112,24 +112,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 33,
   },
-  mobileIn_loginText: {
-    fontSize: 24,
-    color: '#F3F2F9',
-  },
-  mobileIn_toRegister: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  mobileIn_toRegisterLeft: {
-    fontSize: 18,
-    color: '#F9F871',
-  },
-  mobileIn_toRegisterRight: {
-    fontSize: 24,
-    color: '#CB7362',
-    marginLeft: 20,
-    marginTop: -3,
-  },
 })
 
 export default styles

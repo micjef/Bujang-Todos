@@ -1,4 +1,4 @@
-import { Dimensions, StatusBar, StyleSheet } from "react-native"
+import { Dimensions, StyleSheet } from "react-native"
 
 const windowWidth = Dimensions.get('window').width
 const windowHeight = Dimensions.get('window').height
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 20,
     alignItems: 'center',
-    //justifyContent: 'center',
   },
   dekstopUp_right: {
     width: (windowWidth -20) / 144 * 92,
@@ -79,6 +78,38 @@ const styles = StyleSheet.create({
     color: '#CB7362',
     marginLeft: 20,
     marginTop: -3,
+  },
+
+  // mobile
+  mobileUp_view: {
+    alignItems: 'center',
+  },
+  mobileUp_logo: {
+    width: 200,
+    height: 200,
+    marginTop: (windowWidth -2) / 64 * 10,
+    borderRadius: 500,
+    marginBottom: 75,
+  },
+  mobileUp_input: {
+    width: (windowWidth - 20) / 64 * 24.5,
+    height: 40,
+    borderWidth: 1,
+    borderColor: '#ADADB3',
+    borderRadius: 20,
+    color: '#F3F2F9',
+    fontSize: 18,
+    marginBottom: 15,
+    paddingHorizontal: 10,
+  },
+  mobileUp_login: {
+    width: (windowWidth - 20) / 64 * 24.5,
+    height: 43,
+    backgroundColor: '#CB7362',
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 33,
   },
 })
 
