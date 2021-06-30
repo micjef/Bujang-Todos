@@ -1,35 +1,59 @@
-import { StyleSheet } from 'react-native'
-import Colors from '../../constants/Colors'
+import { Dimensions, StyleSheet } from "react-native"
+
+const windowWidth = Dimensions.get('window').width
+const windowHeight = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Colors.dark.background,
-  },
-  root: {
-    flexDirection: 'row',
+  dekstopHome_box: {
     width: '100%',
-    alignItems: 'center',
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#ADADB3',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  dekstopHome_info: {
+    marginLeft: 30,
+  },
+  dekstopHome_lead: {
+    fontSize: 36,
+    marginTop: 10,
+    color: '#F3F2F9',
+  },
+  dekstopHome_time: {
+    marginLeft: 27,
+    marginTop: 5,
     marginBottom: 10,
+    fontSize: 24,
+    color: '#F3F2F9',
   },
-  iconContainer: {
-    width: 40,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5,
-    backgroundColor: '#404040',
-    marginRight: 10,
+  dekstopHome_progressBox: {
+    borderWidth: 1,
+    borderColor: '#ADADB3',
+    borderRadius: 20,
+    width: 202,
+    height: 17,
+    marginTop: 39,
+    marginRight: 49,
   },
-  title: {
-    fontSize: 20,
-    color: Colors.dark.text,
-    marginRight: 5,
+  dekstopHome_progressFill: {
+    backgroundColor: '#CB7362',
+    borderRadius: 20,
+    width: 100,
+    height: 15,
+    zIndex: 0,
   },
-  time: {
-    color: 'darkgrey',
+  dekstopHome_progressText: {
+    fontSize: 12,
+    alignItems: 'justify',
+    color: '#F3F2F9',
+    marginTop: -15,
+    marginLeft: 90,
+    zIndex: 2,
   },
 })
 

@@ -37,7 +37,7 @@ function RootNavigator() {
         options={{
           headerShown: false
         }}
-      />*/}
+      />
       <Stack.Screen 
         name="SignInScreen" 
         component={SignInScreen} 
@@ -53,9 +53,15 @@ function RootNavigator() {
           //title: "Sign Up"
           headerShown: false
         }}
+      />*/}
+      <Stack.Screen 
+        name="Home" 
+        component={ProjectScreens} 
+        options={{
+          headerShown: false
+        }}
       />
-      {/*<Stack.Screen name="Home" component={ProjectScreens} />
-      <Stack.Screen name="ToDoScreen" component={ToDoScreen} />*/}
+      {/*<Stack.Screen name="ToDoScreen" component={ToDoScreen} />*/}
       {/*<Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />*/}
     </Stack.Navigator>
   );

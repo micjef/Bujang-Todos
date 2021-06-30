@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
-import { View, Text, TextInput, Pressable, ActivityIndicator, Alert, Dimensions, Image } from 'react-native'
+import { View, Text, TextInput, Pressable, ActivityIndicator, Alert, Dimensions, Image, Linking } from 'react-native'
 
 import { useMutation, gql } from '@apollo/client'
 import AsyncStorage from '@react-native-async-storage/async-storage'
