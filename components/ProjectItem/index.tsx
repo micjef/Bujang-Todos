@@ -1,5 +1,6 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
+import moment from 'moment'
 import React from 'react'
 import { View, Text, Pressable, Dimensions } from 'react-native'
 import styles from './styles'
@@ -8,9 +9,10 @@ const windowWidth = Dimensions.get('window').width
 
 interface ProjectItemProps{
   project: {
-    id: String,
-    title: String,
-    createdAt: String,
+    id: string,
+    title: string,
+    createdAt: string,
+    progress: number,
   }
 }
 
@@ -28,12 +30,12 @@ const ProjectItem = ( { project }: ProjectItemProps ) => {
         <Pressable style={styles.dekstopHome_box} onPress={onPress} >
           <View style={styles.dekstopHome_info} >
             <Text style={styles.dekstopHome_lead}>{project.title}</Text>
-            <Text style={styles.dekstopHome_time}>{/*project.createdAt*/}wednesday</Text>
+            <Text style={styles.dekstopHome_time}>{moment(project.createdAt).fromNow()}</Text>
           </View>
 
           <View style={styles.dekstopHome_progressBox}>
-            <View style={styles.dekstopHome_progressFill}></View>
-            <Text style={styles.dekstopHome_progressText}>50%</Text>
+            <View style={[styles.dekstopHome_progressFill, {width: (project.progress) * 2}]}></View>
+            <Text style={styles.dekstopHome_progressText}>{(project.progress).toFixed(0)}%</Text>
           </View>
         </Pressable>
       ) : (
@@ -43,7 +45,7 @@ const ProjectItem = ( { project }: ProjectItemProps ) => {
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: 'none' }}>
             <Text>{project.title}</Text>
-            <Text>{project.createdAt}</Text>
+            <Text>{moment(project.createdAt).fromNow()}</Text>
           </View>
         </Pressable>
       )}

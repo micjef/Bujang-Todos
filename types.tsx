@@ -5,6 +5,7 @@ export type RootStackParamList = {
   ToDoScreen: undefined;
   Home: undefined;
   NotFound: undefined;
+  CreateTaskList: undefined;
   Root: undefined;
 };
 

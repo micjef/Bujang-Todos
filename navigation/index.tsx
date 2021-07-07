@@ -2,6 +2,7 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
+import CreateTaskList from '../screens/CreateTaskLists/Index';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ProjectScreens from '../screens/ProjectScreen';
@@ -37,7 +38,7 @@ function RootNavigator() {
         options={{
           headerShown: false
         }}
-      />
+      />*/}
       <Stack.Screen 
         name="SignInScreen" 
         component={SignInScreen} 
@@ -53,10 +54,17 @@ function RootNavigator() {
           //title: "Sign Up"
           headerShown: false
         }}
-      />*/}
+      />
       <Stack.Screen 
         name="Home" 
         component={ProjectScreens} 
+        options={{
+          headerShown: false
+        }}
+      />
+      <Stack.Screen 
+        name="CreateTaskList" 
+        component={CreateTaskList} 
         options={{
           headerShown: false
         }}

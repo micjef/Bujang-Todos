@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     marginTop: 10,
     color: '#F3F2F9',
+    textTransform: "capitalize",
   },
   dekstopHome_time: {
     marginLeft: 27,
@@ -43,13 +44,11 @@ const styles = StyleSheet.create({
   dekstopHome_progressFill: {
     backgroundColor: '#CB7362',
     borderRadius: 20,
-    width: 100,
     height: 15,
     zIndex: 0,
   },
   dekstopHome_progressText: {
     fontSize: 12,
-    alignItems: 'justify',
     color: '#F3F2F9',
     marginTop: -15,
     marginLeft: 90,

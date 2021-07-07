@@ -45,7 +45,24 @@ const styles = StyleSheet.create({
     width: (windowWidth -20) / 144 * 92,
     marginLeft: 40,
     marginTop: 50,
-  }
+    maxHeight: 1214,
+  },
+  dekstopHome_add: {
+    backgroundColor: '#CB7362',
+    width: 80,
+    height: 80,
+    borderRadius: 500,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 100,
+    bottom: 50,
+  },
+  dekstopHome_addText: {
+    fontSize: 80,
+    color: '#F3F2F9',
+    marginTop: -15,
+  },
 })
 
 export default styles

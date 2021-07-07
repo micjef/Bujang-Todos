@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import styles from './SignUp/Styles'
 
-const dekstopRightBg = require('../assets/images/jungle.jpg')
+const dekstopRightBg = require('../assets/images/ilustration.png')
 
 const windowWidth = Dimensions.get('window').width
 

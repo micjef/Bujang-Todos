@@ -1,8 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
-import { Alert, FlatList, StyleSheet, Dimensions, Text, View, Image } from 'react-native';
+import { Alert, FlatList, StyleSheet, Dimensions, Text, View, Image, Pressable } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import ProjectItem from '../components/ProjectItem';
 import Colors from '../constants/Colors';
 
@@ -12,8 +11,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { LinearTextGradient } from "react-native-text-gradient"
 
 import styles from './Home/Styles'
+import { useNavigation } from '@react-navigation/native';
 
-const dekstopRightBg = require('../assets/images/jungle.jpg')
+const dekstopRightBg = require('../assets/images/ilustration.png')
 
 const windowWidth = Dimensions.get('window').width
 
@@ -22,6 +22,8 @@ const PROJECTS = gql`
     myTaskLists {
         id
         title
+        createdAt
+        progress
     }
   }
 `
@@ -42,6 +44,12 @@ export default function ProjectScreens() {
       setProject(data.myTaskLists)
     }
   }, [data])
+
+  const navigation = useNavigation()
+
+  const newTaskList = () => {
+    navigation.navigate('CreateTaskList')
+  }
 
   return (
     <View>
@@ -67,9 +75,15 @@ export default function ProjectScreens() {
               data={project}
               renderItem={({ item }) => <ProjectItem project={item} />}
               style={styles.dekstopHome_list}
+              showsVerticalScrollIndicator={false}
             />
+
+            <Pressable style={styles.dekstopHome_add} onPress={newTaskList}>
+              <Text style={styles.dekstopHome_addText}>+</Text>
+            </Pressable>
+
           </View>
-          
+
         </View>
       ) : (
       <View style={styless.container}>
